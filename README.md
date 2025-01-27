@@ -1,1 +1,1 @@
-Je kan nu bewegen (springen, lopen en crouchen) en 360 rond kijken
+Je kan nu bewegen (springen, lopen, rennen en crouchen) en 360 rond kijken.
