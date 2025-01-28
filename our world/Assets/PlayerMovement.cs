@@ -22,11 +22,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canMove = true;
 
+    Animator bikerAnimator;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        bikerAnimator = GetComponent<Animator>();
+        bikerAnimator.SetBool("Runbool", false);
     }
 
     void Update()
@@ -39,6 +43,24 @@ public class PlayerMovement : MonoBehaviour
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+        { 
+            bikerAnimator.SetBool("Runbool", true);
+        }
+        else
+        {
+            bikerAnimator.SetBool("Runbool", false);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            bikerAnimator.SetBool("Walkbool", true);
+        }
+        else
+        {
+            bikerAnimator.SetBool("Walkbool", false);
+        }
 
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
