@@ -53,6 +53,15 @@ public class PlayerMovement : MonoBehaviour
             bikerAnimator.SetBool("Runbool", false);
         }
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            bikerAnimator.SetBool("Jumpbool", true);
+        }
+        else
+        {
+            bikerAnimator.SetBool("Jumpbool", false);
+        }
+
         if (Input.GetKey(KeyCode.W))
         {
             bikerAnimator.SetBool("Walkbool", true);
